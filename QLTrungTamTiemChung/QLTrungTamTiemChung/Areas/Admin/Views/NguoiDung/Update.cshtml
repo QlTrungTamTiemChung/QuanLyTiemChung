@@ -1,0 +1,66 @@
+﻿@model QLTrungTamTiemChung.Areas.Admin.Models.EntityFramework.NguoiDung
+
+@{
+    ViewBag.Title = "Chỉnh sửa";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@if (TempData["thongbao"] != null)
+{
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <strong>@TempData["thongbao"]</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+<div class="row-fluid sortable">
+    <div class="box span12">
+        <div class="box-header" data-original-title>
+            <h2><i class="halflings-icon edit"></i><span class="break"></span>Chỉnh sửa người dùng</h2>
+        </div>
+        <div class="box-content">
+            @using (Html.BeginForm("Update", "NguoiDung", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <input name="MaND" type="text" style="display:none" value="@Model.MaND">
+                <div class="control-group">
+                    <label class="control-label" for="focusedInput">Tên người dùng</label>
+                    <div class="controls">
+                        <input class="input-xlarge focused" name="TenND" id="focusedInput" type="text" value="@Model.TenND">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="focusedInput">Email</label>
+                    <div class="controls">
+                        <input class="input-xlarge focused" name="Email" id="focusedInput" type="text" value="@Model.Email">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="focusedInput">Mật khẩu</label>
+                    <div class="controls">
+                        <input class="input-xlarge focused" name="MatKhau" id="focusedInput" type="password" value="@Model.MatKhau">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="selectError3">Vai trò</label>
+                    <div class="controls">
+                        @Html.DropDownList("MaLoaiND", (IEnumerable<SelectListItem>)ViewBag.DanhSachVaiTro, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        <input type="submit" value="Cập nhật" class="btn btn-success" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div><!--/span-->
+
+</div><!--/row-->

@@ -51,6 +51,12 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -239,6 +245,7 @@
     <Content Include="Areas\Admin\Contents\js\jquery.uploadify-3.1.min.js" />
     <Content Include="Areas\Admin\Contents\js\modernizr.js" />
     <Content Include="Areas\Admin\Contents\js\retina.js" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -246,21 +253,29 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BacSiController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Admin\Models\BacSi.cs" />
-    <Compile Include="Areas\Admin\Models\BenhNhan.cs" />
-    <Compile Include="Areas\Admin\Models\CoSo.cs" />
-    <Compile Include="Areas\Admin\Models\HoaDon.cs" />
-    <Compile Include="Areas\Admin\Models\Kho.cs" />
-    <Compile Include="Areas\Admin\Models\LoaiNguoiDung.cs" />
-    <Compile Include="Areas\Admin\Models\NguoiDung.cs" />
-    <Compile Include="Areas\Admin\Models\NhaCungCap.cs" />
-    <Compile Include="Areas\Admin\Models\NhanVien.cs" />
-    <Compile Include="Areas\Admin\Models\PhieuNhap.cs" />
-    <Compile Include="Areas\Admin\Models\PhieuTiem.cs" />
-    <Compile Include="Areas\Admin\Models\PhieuXuat.cs" />
-    <Compile Include="Areas\Admin\Models\TiemChungDBContext.cs" />
-    <Compile Include="Areas\Admin\Models\Vacxin.cs" />
+    <Compile Include="Areas\Admin\Controllers\NguoiDungController.cs" />
+    <Compile Include="Areas\Admin\Models\DAO\BacSiDAO.cs" />
+    <Compile Include="Areas\Admin\Models\DAO\NguoiDungDAO.cs" />
+    <Compile Include="Areas\Admin\Models\EntityFramework\BacSi.cs" />
+    <Compile Include="Areas\Admin\Models\EntityFramework\BenhNhan.cs" />
+    <Compile Include="Areas\Admin\Models\EntityFramework\CoSo.cs" />
+    <Compile Include="Areas\Admin\Models\EntityFramework\CTKho.cs" />
+    <Compile Include="Areas\Admin\Models\EntityFramework\CTPhieuNhap.cs" />
+    <Compile Include="Areas\Admin\Models\EntityFramework\CTPhieuXuat.cs" />
+    <Compile Include="Areas\Admin\Models\EntityFramework\HoaDon.cs" />
+    <Compile Include="Areas\Admin\Models\EntityFramework\Kho.cs" />
+    <Compile Include="Areas\Admin\Models\EntityFramework\LoaiNguoiDung.cs" />
+    <Compile Include="Areas\Admin\Models\EntityFramework\NguoiDung.cs" />
+    <Compile Include="Areas\Admin\Models\EntityFramework\NhaCungCap.cs" />
+    <Compile Include="Areas\Admin\Models\EntityFramework\NhanVien.cs" />
+    <Compile Include="Areas\Admin\Models\EntityFramework\PhieuDangKy.cs" />
+    <Compile Include="Areas\Admin\Models\EntityFramework\PhieuKham.cs" />
+    <Compile Include="Areas\Admin\Models\EntityFramework\PhieuNhap.cs" />
+    <Compile Include="Areas\Admin\Models\EntityFramework\PhieuXuat.cs" />
+    <Compile Include="Areas\Admin\Models\EntityFramework\QLTiemChungDBContext.cs" />
+    <Compile Include="Areas\Admin\Models\EntityFramework\Vacxin.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -270,7 +285,6 @@
     <Content Include="Views\web.config" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Contents\font\fontawesome-webfont-0.eot" />
@@ -285,6 +299,12 @@
     <Content Include="Areas\Admin\Contents\font\glyphiconshalflings-regular.eot" />
     <Content Include="Areas\Admin\Contents\font\glyphiconshalflings-regular.ttf" />
     <Content Include="Areas\Admin\Contents\font\glyphiconshalflings-regular.woff" />
+    <Content Include="Areas\Admin\Views\BacSi\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\BacSi\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\BacSi\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\NguoiDung\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\NguoiDung\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\NguoiDung\Update.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
