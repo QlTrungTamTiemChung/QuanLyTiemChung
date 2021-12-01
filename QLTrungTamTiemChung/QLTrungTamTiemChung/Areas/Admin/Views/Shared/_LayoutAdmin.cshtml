@@ -83,18 +83,48 @@
                 <div class="nav-collapse sidebar-nav">
                     <ul class="nav nav-tabs nav-stacked main-menu">
                         <li><a href="@Url.Action("Index","Home")"><i class="icon-bar-chart"></i><span class="hidden-tablet"> QLTTTC</span></a></li>
-                        <li><a href="#"><i class="icon-tasks"></i><span class="hidden-tablet"> Quản lý thông tin Vắc-xin</span></a></li>
-                        <li><a href="#"><i class="icon-tasks"></i><span class="hidden-tablet"> Quản lý thông tin Bác sĩ</span></a></li>
-                        <li><a href="#"><i class="icon-tasks"></i><span class="hidden-tablet"> Quản lý thông tin Nhân viên </span></a></li>
-                        <li><a href="#"><i class="icon-tasks"></i><span class="hidden-tablet"> Quản lý thông tin Khách hàng</span></a></li>
                         <li>
-                            <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Quản lý người dùng</span></a>
+                            <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Nhà cung cấp</span><span class="label label-important"> 2 </span></a>
                             <ul>
-                                <li><a class="submenu" href="@Url.Action("Create","NguoiDung")"><i class="icon-file-alt"></i><span class="hidden-tablet">Thêm người dùng</span></a></li>
+                                <li><a class="submenu" href="@Url.Action("Create","NhaCungCap")"><i class="icon-file-alt"></i><span class="hidden-tablet">Thêm mới NCC</span></a></li>
+                                <li><a class="submenu" href="@Url.Action("Index","NhaCungCap")"><i class="icon-file-alt"></i><span class="hidden-tablet">Danh sách NCC</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Vắc-xin</span><span class="label label-important"> 2 </span></a>
+                            <ul>
+                                <li><a class="submenu" href="@Url.Action("Create","VacXin")"><i class="icon-file-alt"></i><span class="hidden-tablet">Thêm mới Vắc-xin</span></a></li>
+                                <li><a class="submenu" href="@Url.Action("Index","VacXin")"><i class="icon-file-alt"></i><span class="hidden-tablet">Danh sách Vắc-xin</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Bác sĩ</span><span class="label label-important"> 2 </span></a>
+                            <ul>
+                                <li><a class="submenu" href="@Url.Action("Create","BacSi")"><i class="icon-file-alt"></i><span class="hidden-tablet">Thêm mới bác sĩ</span></a></li>
+                                <li><a class="submenu" href="@Url.Action("Index","BacSi")"><i class="icon-file-alt"></i><span class="hidden-tablet">Danh sách bác sĩ</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Nhân viên</span><span class="label label-important"> 2 </span></a>
+                            <ul>
+                                <li><a class="submenu" href="@Url.Action("Create","NhanVien")"><i class="icon-file-alt"></i><span class="hidden-tablet">Thêm mới nhân viên</span></a></li>
+                                <li><a class="submenu" href="@Url.Action("Index","NhanVien")"><i class="icon-file-alt"></i><span class="hidden-tablet">Danh sách nhân viên</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Khách hàng</span><span class="label label-important"> 2 </span></a>
+                            <ul>
+                                <li><a class="submenu" href="@Url.Action("Create","KhachHang")"><i class="icon-file-alt"></i><span class="hidden-tablet">Thêm mới khách hàng</span></a></li>
+                                <li><a class="submenu" href="@Url.Action("Index","KhachHang")"><i class="icon-file-alt"></i><span class="hidden-tablet">Danh sách khách hàng</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Người dùng</span><span class="label label-important"> 2 </span></a>
+                            <ul>
+                                <li><a class="submenu" href="@Url.Action("Create","NguoiDung")"><i class="icon-file-alt"></i><span class="hidden-tablet">Thêm mới người dùng</span></a></li>
                                 <li><a class="submenu" href="@Url.Action("Index","NguoiDung")"><i class="icon-file-alt"></i><span class="hidden-tablet">Danh sách người dùng</span></a></li>
                             </ul>
                         </li>
-
                         <li>
                             <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Quản lý nhập/xuất</span><span class="label label-important"> 2 </span></a>
                             <ul>
