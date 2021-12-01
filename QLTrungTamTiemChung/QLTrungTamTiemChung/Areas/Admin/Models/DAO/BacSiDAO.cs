@@ -72,9 +72,14 @@ namespace QLTrungTamTiemChung.Areas.Admin.Models.DAO
                 return false;
             }
         }
-        public List<BacSi> DropDownList()
+        public List<NguoiDung> UserDropDownList()
         {
-            return context.BacSis.ToList();
+            return context.NguoiDungs.ToList();
+        }
+
+        public List<CoSo> CoSoDropDownList()
+        {
+            return context.CoSoes.ToList();
         }
     }
 }

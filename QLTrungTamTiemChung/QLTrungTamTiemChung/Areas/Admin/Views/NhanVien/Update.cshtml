@@ -1,4 +1,4 @@
-﻿@model QLTrungTamTiemChung.Areas.Admin.Models.EntityFramework.BacSi
+﻿@model QLTrungTamTiemChung.Areas.Admin.Models.EntityFramework.NhanVien
 
 @{
     ViewBag.Title = "Thêm mới";
@@ -17,74 +17,62 @@
 <div class="row-fluid sortable">
     <div class="box span12">
         <div class="box-header" data-original-title>
-            <h2><i class="halflings-icon edit"></i><span class="break"></span>Thêm bác sĩ</h2>
+            <h2><i class="halflings-icon edit"></i><span class="break"></span>Thêm nhân viên</h2>
         </div>
         <div class="box-content">
-            @using (Html.BeginForm("Create", "BacSi", FormMethod.Post, new { @class = "form-horizontal" }))
+            @using (Html.BeginForm("Update", "NhanVien", FormMethod.Post, new { @class = "form-horizontal" }))
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
+                <input name="MaNV" type="text" style="display:none" value="@Model.MaNV" />
+
                 <div class="control-group">
-                    <label class="control-label" for="HoTen">Tên bác sĩ</label>
+                    <label class="control-label" for="HoTen">Tên nhân viên</label>
                     <div class="controls">
-                        <input class="input-xlarge focused" name="HoTen" id="HoTen" type="text">
+                        <input class="input-xlarge focused" name="HoTen" id="HoTen" type="text" value="@Model.HoTen">
                     </div>
                 </div>
 
                 <div class="control-group">
                     <label class="control-label" for="Luong">Lương</label>
                     <div class="controls">
-                        <input class="input-xlarge focused" name="Luong" id="Luong" type="text">
+                        <input class="input-xlarge focused" name="Luong" id="Luong" type="text" value="@Model.Luong">
                     </div>
                 </div>
 
                 <div class="control-group">
                     <label class="control-label" for="ChucVu">Chức vụ</label>
                     <div class="controls">
-                        <input class="input-xlarge focused" name="ChucVu" id="ChucVu" type="text">
+                        <input class="input-xlarge focused" name="ChucVu" id="ChucVu" type="text" value="@Model.ChucVu">
                     </div>
                 </div>
 
                 <div class="control-group">
                     <label class="control-label" for="PhongBan">Phòng ban</label>
                     <div class="controls">
-                        <input class="input-xlarge focused" name="PhongBan" id="PhongBan" type="text">
+                        <input class="input-xlarge focused" name="PhongBan" id="PhongBan" type="text" value="@Model.PhongBan">
                     </div>
                 </div>
 
                 <div class="control-group">
                     <label class="control-label" for="NgaySinh">Ngày sinh</label>
                     <div class="controls">
-                        <input class="input-xlarge focused" name="NgaySinh" id="NgaySinh" type="text">
+                        <input class="input-xlarge focused" name="NgaySinh" id="NgaySinh" type="text" value="@Model.NgaySinh">
                     </div>
                 </div>
 
                 <div class="control-group">
                     <label class="control-label" for="GioiTinh">Giói tính</label>
                     <div class="controls">
-                        <input class="input-xlarge focused" name="GioiTinh" id="GioiTinh" type="text">
-                    </div>
-                </div>
-
-                <div class="control-group">
-                    <label class="control-label" for="SDT">Số điện thoại</label>
-                    <div class="controls">
-                        <input class="input-xlarge focused" name="SDT" id="SDT" type="text">
+                        <input class="input-xlarge focused" name="GioiTinh" id="GioiTinh" type="text" value="@Model.GioiTinh">
                     </div>
                 </div>
 
                 <div class="control-group">
                     <label class="control-label" for="DiaChi">Địa chỉ</label>
                     <div class="controls">
-                        <input class="input-xlarge focused" name="DiaChi" id="DiaChi" type="text">
-                    </div>
-                </div>
-
-                <div class="control-group">
-                    <label class="control-label" for="HamHoc">Học hàm</label>
-                    <div class="controls">
-                        <input class="input-xlarge focused" name="HamHoc" id="HamHoc" type="text">
+                        <input class="input-xlarge focused" name="DiaChi" id="DiaChi" type="text" value="@Model.DiaChi">
                     </div>
                 </div>
 
@@ -104,7 +92,7 @@
 
                 <div class="control-group">
                     <div class="controls">
-                        <input type="submit" value="Thêm mới" class="btn btn-success" />
+                        <input type="submit" value="Cập nhật" class="btn btn-success" />
                     </div>
                 </div>
             }

@@ -17,6 +17,7 @@ namespace QLTrungTamTiemChung.Areas.Admin.Models.EntityFramework
         }
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MaNV { get; set; }
 
         [StringLength(50)]
@@ -29,16 +30,16 @@ namespace QLTrungTamTiemChung.Areas.Admin.Models.EntityFramework
         [StringLength(10)]
         public string GioiTinh { get; set; }
 
-        public int? Luong { get; set; }
+        public int Luong { get; set; }
 
         [StringLength(50)]
         public string NgaySinh { get; set; }
 
         public string DiaChi { get; set; }
 
-        public int? MaCoSo { get; set; }
+        public int MaCoSo { get; set; }
 
-        public int? MaND { get; set; }
+        public int MaND { get; set; }
 
         public virtual CoSo CoSo { get; set; }
 

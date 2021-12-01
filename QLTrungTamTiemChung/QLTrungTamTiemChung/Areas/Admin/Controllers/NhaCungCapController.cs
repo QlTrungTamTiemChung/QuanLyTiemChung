@@ -8,38 +8,32 @@ using QLTrungTamTiemChung.Areas.Admin.Models.EntityFramework;
 
 namespace QLTrungTamTiemChung.Areas.Admin.Controllers
 {
-    public class NguoiDungController : Controller
+    public class NhaCungCapController : Controller
     {
         public ActionResult Index(String searchString, int page = 1, int pageSize = 10)
         {
-            var NguoiDungDAO = new NguoiDungDAO();
-            var NguoiDungList = NguoiDungDAO.ListAll(searchString, page, pageSize);
+            var NhaCungCapDAO = new NhaCungCapDAO();
+            var NhaCungCapList = NhaCungCapDAO.ListAll(searchString, page, pageSize);
             ViewBag.searchString = searchString;
-            return View(NguoiDungList);
-        }
-        public void SetRoleDropDownList(int? id = null)
-        {
-            var userDAO = new NguoiDungDAO();
-            ViewBag.DanhSachVaiTro = new SelectList(userDAO.RoleDropDownList(), "MaLoaiND", "TenLoaiND", id);
+            return View(NhaCungCapList);
         }
 
         public ActionResult Create()
         {
-            SetRoleDropDownList();
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(NguoiDung NguoiDung)
+        public ActionResult Create(NhaCungCap NhaCungCap)
         {
             if (ModelState.IsValid)
             {
-                var dao = new NguoiDungDAO();
-                int id = dao.Insert(NguoiDung);
+                var dao = new NhaCungCapDAO();
+                int id = dao.Insert(NhaCungCap);
                 if (id > 0)
                 {
                     TempData["thongbao"] = "Thêm mới thành công!";
-                    return RedirectToAction("Index", "NguoiDung");
+                    return RedirectToAction("Index", "NhaCungCap");
                 }
                 else
                 {
@@ -52,41 +46,39 @@ namespace QLTrungTamTiemChung.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Update(int id)
         {
-            var dao = new NguoiDungDAO();
-            NguoiDung NguoiDung = dao.GetById(id);
-            if (NguoiDung == null)
+            var dao = new NhaCungCapDAO();
+            NhaCungCap NhaCungCap = dao.GetById(id);
+            if (NhaCungCap == null)
             {
                 Response.StatusCode = 404;
                 return null;
             }
-            SetRoleDropDownList(NguoiDung.MaND);
-            return View(NguoiDung);
+            return View(NhaCungCap);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Update(NguoiDung NguoiDung)
+        public ActionResult Update(NhaCungCap NhaCungCap)
         {
             //Thêm vào CSDL
             if (ModelState.IsValid)
             {
-                var dao = new NguoiDungDAO();
-                if (dao.Update(NguoiDung) == true)
+                var dao = new NhaCungCapDAO();
+                if (dao.Update(NhaCungCap) == true)
                 {
                     TempData["thongbao"] = "Chỉnh sửa thành công!";
-                    return RedirectToAction("Index", "NguoiDung");
+                    return RedirectToAction("Index", "NhaCungCap");
                 }
                 else
                 {
                     TempData["thongbao"] = "Chỉnh sửa thất bại!!";
                 }
             }
-            SetRoleDropDownList(NguoiDung.MaND);
-            return View(NguoiDung);
+            return View(NhaCungCap);
         }
         public ActionResult Delete(int id)
         {
-            var dao = new NguoiDungDAO();
+            var dao = new NhaCungCapDAO();
             if (dao.Delete(id) == true)
             {
                 TempData["thongbao"] = "Xóa thành công!";

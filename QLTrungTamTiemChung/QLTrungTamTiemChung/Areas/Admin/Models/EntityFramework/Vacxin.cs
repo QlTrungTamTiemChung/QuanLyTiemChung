@@ -17,24 +17,25 @@ namespace QLTrungTamTiemChung.Areas.Admin.Models.EntityFramework
         }
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MaVX { get; set; }
 
         [StringLength(50)]
         public string TenVX { get; set; }
 
-        public int? SoLuong { get; set; }
+        public int SoLuong { get; set; }
 
         [StringLength(50)]
         public string PhanLoai { get; set; }
 
-        public int? DonGiaNhap { get; set; }
+        public int DonGiaNhap { get; set; }
 
-        public int? DonGiaBan { get; set; }
+        public int DonGiaBan { get; set; }
 
         [StringLength(50)]
         public string DonViTinh { get; set; }
 
-        public int? MaNCC { get; set; }
+        public int MaNCC { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTKho> CTKhoes { get; set; }

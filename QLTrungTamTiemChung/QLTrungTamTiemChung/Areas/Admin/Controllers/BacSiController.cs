@@ -17,9 +17,22 @@ namespace QLTrungTamTiemChung.Areas.Admin.Controllers
             ViewBag.searchString = searchString;
             return View(BacSiList);
         }
+        public void SetUserDropDownList(int? id = null)
+        {
+            var bsDAO = new BacSiDAO();
+            ViewBag.DanhSachNguoiDung = new SelectList(bsDAO.UserDropDownList(), "MaND", "Email", id);
+        }
+
+        public void SetCoSoDropDownList(int? id = null)
+        {
+            var bsDAO = new BacSiDAO();
+            ViewBag.DanhSachCoSo = new SelectList(bsDAO.CoSoDropDownList(), "MaCoSo", "TenCoSo", id);
+        }
 
         public ActionResult Create()
         {
+            SetUserDropDownList();
+            SetCoSoDropDownList();
             return View();
         }
         [HttpPost]
@@ -32,14 +45,16 @@ namespace QLTrungTamTiemChung.Areas.Admin.Controllers
                 int id = dao.Insert(BacSi);
                 if (id > 0)
                 {
-                    TempData["thongbao"] = "Thêm mới bác sĩ thành công!";
+                    TempData["thongbao"] = "Thêm mới thành công!";
                     return RedirectToAction("Index", "BacSi");
                 }
                 else
                 {
-                    TempData["thongbao"] = "Thêm bác sĩ thất bại";
+                    TempData["thongbao"] = "Thêm mới thất bại";
                 }
             }
+            SetUserDropDownList();
+            SetCoSoDropDownList();
             return View();
         }
 
@@ -53,6 +68,8 @@ namespace QLTrungTamTiemChung.Areas.Admin.Controllers
                 Response.StatusCode = 404;
                 return null;
             }
+            SetUserDropDownList(BacSi.MaBS);
+            SetCoSoDropDownList(BacSi.MaCoSo);
             return View(BacSi);
         }
 
@@ -74,6 +91,8 @@ namespace QLTrungTamTiemChung.Areas.Admin.Controllers
                     TempData["thongbao"] = "Chỉnh sửa thất bại!!";
                 }
             }
+            SetUserDropDownList(BacSi.MaBS);
+            SetCoSoDropDownList(BacSi.MaCoSo);
             return View(BacSi);
         }
         public ActionResult Delete(int id)

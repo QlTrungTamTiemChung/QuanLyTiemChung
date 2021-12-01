@@ -1,4 +1,4 @@
-﻿@model PagedList.IPagedList<QLTrungTamTiemChung.Areas.Admin.Models.EntityFramework.BacSi>
+﻿@model PagedList.IPagedList<QLTrungTamTiemChung.Areas.Admin.Models.EntityFramework.NhaCungCap>
 @using PagedList.Mvc;
 @{
     ViewBag.Title = "Danh sách";
@@ -24,11 +24,8 @@
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Họ tên</th>
-                        <th>Ngày sinh</th>
-                        <th>Giới tính</th>
-                        <th>Phòng ban</th>
-                        <th>Chức vụ</th>
+                        <th>Tên nhà cung cấp</th>
+                        <th>Địa chỉ</th>
                         <th>Điện thoại</th>
                         <th>Actions</th>
                     </tr>
@@ -39,20 +36,14 @@
                         count++;
                         <tr>
                             <td>@count</td>
-                            <td class="center">@item.HoTen</td>
-                            <td class="center">@item.NgaySinh</td>
-                            <td class="center">@item.GioiTinh</td>
-                            <td class="center">@item.PhongBan</td>
-                            <td class="center">@item.ChucVu</td>
+                            <td class="center">@item.TenNCC</td>
+                            <td class="center">@item.DiaChi</td>
                             <td class="center">@item.SDT</td>
                             <td class="center">
-                                @*<a class="btn btn-success" href="#">
-                                    <i class="halflings-icon white zoom-in"></i>
-                                </a>*@
-                                <a class="btn btn-info" href="@Url.Action("Update","BacSi",new { id = item.MaBS })">
+                                <a class="btn btn-info" href="@Url.Action("Update","NhaCungCap",new { id = item.MaNCC })">
                                     <i class="halflings-icon white edit"></i>
                                 </a>
-                                <a class="btn btn-danger" href="@Url.Action("Delete","BacSi",new { id = item.MaBS })">
+                                <a class="btn btn-danger" href="@Url.Action("Delete","NhaCungCap",new { id = item.MaNCC })">
                                     <i class="halflings-icon white trash"></i>
                                 </a>
                             </td>

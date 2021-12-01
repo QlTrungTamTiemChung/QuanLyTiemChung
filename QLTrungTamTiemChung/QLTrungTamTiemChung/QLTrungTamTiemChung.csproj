@@ -255,9 +255,17 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BacSiController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\KhachHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\NguoiDungController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NhaCungCapController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NhanVienController.cs" />
+    <Compile Include="Areas\Admin\Controllers\VacXinController.cs" />
     <Compile Include="Areas\Admin\Models\DAO\BacSiDAO.cs" />
+    <Compile Include="Areas\Admin\Models\DAO\KhachHangDAO.cs" />
     <Compile Include="Areas\Admin\Models\DAO\NguoiDungDAO.cs" />
+    <Compile Include="Areas\Admin\Models\DAO\NhaCungCapDAO.cs" />
+    <Compile Include="Areas\Admin\Models\DAO\NhanVienDAO.cs" />
+    <Compile Include="Areas\Admin\Models\DAO\VacXinDAO.cs" />
     <Compile Include="Areas\Admin\Models\EntityFramework\BacSi.cs" />
     <Compile Include="Areas\Admin\Models\EntityFramework\BenhNhan.cs" />
     <Compile Include="Areas\Admin\Models\EntityFramework\CoSo.cs" />
@@ -305,6 +313,18 @@
     <Content Include="Areas\Admin\Views\NguoiDung\Index.cshtml" />
     <Content Include="Areas\Admin\Views\NguoiDung\Create.cshtml" />
     <Content Include="Areas\Admin\Views\NguoiDung\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\VacXin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\VacXin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\VacXin\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanVien\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanVien\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanVien\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaCungCap\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaCungCap\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaCungCap\Update.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

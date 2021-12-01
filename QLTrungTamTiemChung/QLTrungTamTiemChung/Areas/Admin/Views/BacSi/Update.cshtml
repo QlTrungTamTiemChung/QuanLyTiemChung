@@ -1,84 +1,115 @@
-﻿
+﻿@model QLTrungTamTiemChung.Areas.Admin.Models.EntityFramework.BacSi
+
 @{
-    ViewBag.Title = "Update";
+    ViewBag.Title = "Chỉnh sửa";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<div id="content" class="container-fluid">
-    <div class="card">
-        <div class="card-header font-weight-bold">
-            Chỉnh sửa sản phẩm
+@if (TempData["thongbao"] != null)
+{
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <strong>@TempData["thongbao"]</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+<div class="row-fluid sortable">
+    <div class="box span12">
+        <div class="box-header" data-original-title>
+            <h2><i class="halflings-icon edit"></i><span class="break"></span>Chỉnh sửa bác sĩ</h2>
         </div>
-        <div class="card-body">
-            @using (Html.BeginForm("Update", "Product", FormMethod.Post))
+        <div class="box-content">
+            @using (Html.BeginForm("Update", "BacSi", FormMethod.Post, new { @class = "form-horizontal" }))
             {
-                if (TempData["thongbao"] != null)
-                {
-                    <div class="alert alert-success alert-dismissible" role="alert">
-                        <strong>@TempData["thongbao"]</strong>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                }
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.MaSanPham, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-6">
-                        @Html.EditorFor(model => model.MaSanPham, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                        @Html.ValidationMessageFor(model => model.MaSanPham, "", new { @class = "text-danger font-italic" })
+                <input name="MaBS" type="text" style="display:none" value="@Model.MaBS"/>
+                <div class="control-group">
+                    <label class="control-label" for="HoTen">Tên bác sĩ</label>
+                    <div class="controls">
+                        <input class="input-xlarge focused" name="HoTen" id="HoTen" type="text" value="@Model.HoTen">
                     </div>
                 </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.TenSanPham, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-6">
-                        @Html.EditorFor(model => model.TenSanPham, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.TenSanPham, "", new { @class = "text-danger font-italic" })
+                <div class="control-group">
+                    <label class="control-label" for="Luong">Lương</label>
+                    <div class="controls">
+                        <input class="input-xlarge focused" name="Luong" id="Luong" type="text" value="@Model.Luong">
                     </div>
                 </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.SoDangKy, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-6">
-                        @Html.EditorFor(model => model.SoDangKy, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.SoDangKy, "", new { @class = "text-danger font-italic" })
+                <div class="control-group">
+                    <label class="control-label" for="ChucVu">Chức vụ</label>
+                    <div class="controls">
+                        <input class="input-xlarge focused" name="ChucVu" id="ChucVu" type="text" value="@Model.ChucVu">
                     </div>
                 </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.HanSuDung, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-6">
-                        @Html.TextBox("HanSuDung", Model.HanSuDung.Value, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
-                        @Html.ValidationMessageFor(model => model.HanSuDung, "", new { @class = "text-danger font-italic" })
+                <div class="control-group">
+                    <label class="control-label" for="PhongBan">Phòng ban</label>
+                    <div class="controls">
+                        <input class="input-xlarge focused" name="PhongBan" id="PhongBan" type="text" value="@Model.PhongBan">
                     </div>
                 </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.QuyCach, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-6">
-                        @Html.EditorFor(model => model.QuyCach, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.QuyCach, "", new { @class = "text-danger font-italic" })
+                <div class="control-group">
+                    <label class="control-label" for="NgaySinh">Ngày sinh</label>
+                    <div class="controls">
+                        <input class="input-xlarge focused" name="NgaySinh" id="NgaySinh" type="text" value="@Model.NgaySinh">
                     </div>
                 </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.NgayDangKy, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-6">
-                        @Html.TextBox("NgayDangKy", Model.NgayDangKy.Value, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
-                        @Html.ValidationMessageFor(model => model.HanSuDung, "", new { @class = "text-danger font-italic" })
+                <div class="control-group">
+                    <label class="control-label" for="GioiTinh">Giói tính</label>
+                    <div class="controls">
+                        <input class="input-xlarge focused" name="GioiTinh" id="GioiTinh" type="text" value="@Model.GioiTinh">
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
+                <div class="control-group">
+                    <label class="control-label" for="SDT">Số điện thoại</label>
+                    <div class="controls">
+                        <input class="input-xlarge focused" name="SDT" id="SDT" type="text" value="@Model.SDT">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="DiaChi">Địa chỉ</label>
+                    <div class="controls">
+                        <input class="input-xlarge focused" name="DiaChi" id="DiaChi" type="text" value="@Model.DiaChi">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="HamHoc">Học hàm</label>
+                    <div class="controls">
+                        <input class="input-xlarge focused" name="HamHoc" id="HamHoc" type="text" value="@Model.HamHoc">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="selectError3">Cơ sở</label>
+                    <div class="controls">
+                        @Html.DropDownList("MaCoSo", (IEnumerable<SelectListItem>)ViewBag.DanhSachCoSo, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="selectError3">Người dùng</label>
+                    <div class="controls">
+                        @Html.DropDownList("MaND", (IEnumerable<SelectListItem>)ViewBag.DanhSachNguoiDung, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
                         <input type="submit" value="Cập nhật" class="btn btn-success" />
                     </div>
                 </div>
             }
         </div>
-    </div>
-</div>
+    </div><!--/span-->
 
+</div><!--/row-->

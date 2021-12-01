@@ -1,4 +1,4 @@
-﻿@model PagedList.IPagedList<QLTrungTamTiemChung.Areas.Admin.Models.EntityFramework.BacSi>
+﻿@model PagedList.IPagedList<QLTrungTamTiemChung.Areas.Admin.Models.EntityFramework.Vacxin>
 @using PagedList.Mvc;
 @{
     ViewBag.Title = "Danh sách";
@@ -17,19 +17,18 @@
 <div class="row-fluid sortable">
     <div class="box span12">
         <div class="box-header" data-original-title>
-            <h2><i class="halflings-icon user"></i><span class="break"></span>Danh sách bác sĩ</h2>
+            <h2><i class="halflings-icon user"></i><span class="break"></span>Danh sách vắc-xin</h2>
         </div>
         <div class="box-content">
             <table class="table table-striped table-bordered bootstrap-datatable datatable">
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Họ tên</th>
-                        <th>Ngày sinh</th>
-                        <th>Giới tính</th>
-                        <th>Phòng ban</th>
-                        <th>Chức vụ</th>
-                        <th>Điện thoại</th>
+                        <th>Tên vắc-xin</th>
+                        <th>Phân loại</th>
+                        <th>Số lượng</th>
+                        <th>Đơn vị tính</th>
+                        <th>Nhà cung cấp</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -39,20 +38,19 @@
                         count++;
                         <tr>
                             <td>@count</td>
-                            <td class="center">@item.HoTen</td>
-                            <td class="center">@item.NgaySinh</td>
-                            <td class="center">@item.GioiTinh</td>
-                            <td class="center">@item.PhongBan</td>
-                            <td class="center">@item.ChucVu</td>
-                            <td class="center">@item.SDT</td>
+                            <td class="center">@item.TenVX</td>
+                            <td class="center">@item.PhanLoai</td>
+                            <td class="center">@item.SoLuong</td>
+                            <td class="center">@item.DonViTinh</td>
+                            <td class="center">@item.NhaCungCap.TenNCC</td>
                             <td class="center">
                                 @*<a class="btn btn-success" href="#">
-                                    <i class="halflings-icon white zoom-in"></i>
-                                </a>*@
-                                <a class="btn btn-info" href="@Url.Action("Update","BacSi",new { id = item.MaBS })">
+                                        <i class="halflings-icon white zoom-in"></i>
+                                    </a>*@
+                                <a class="btn btn-info" href="@Url.Action("Update","VacXin",new { id = item.MaVX })">
                                     <i class="halflings-icon white edit"></i>
                                 </a>
-                                <a class="btn btn-danger" href="@Url.Action("Delete","BacSi",new { id = item.MaBS })">
+                                <a class="btn btn-danger" href="@Url.Action("Delete","VacXin",new { id = item.MaVX })">
                                     <i class="halflings-icon white trash"></i>
                                 </a>
                             </td>

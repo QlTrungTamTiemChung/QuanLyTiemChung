@@ -16,16 +16,19 @@ namespace QLTrungTamTiemChung.Areas.Admin.Models.EntityFramework
         }
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MaBN { get; set; }
 
         [StringLength(50)]
         public string HoTen { get; set; }
 
+        [StringLength(250)]
         public string DiaChi { get; set; }
 
-        [StringLength(10)]
+        [StringLength(20)]
         public string SDT { get; set; }
 
+        [StringLength(50)]
         public string ThanhNhan { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -17,6 +17,7 @@ namespace QLTrungTamTiemChung.Areas.Admin.Models.EntityFramework
         }
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MaNCC { get; set; }
 
         [StringLength(50)]

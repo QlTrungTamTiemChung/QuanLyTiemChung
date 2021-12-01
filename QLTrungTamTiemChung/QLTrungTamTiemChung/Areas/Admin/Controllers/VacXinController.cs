@@ -8,85 +8,86 @@ using QLTrungTamTiemChung.Areas.Admin.Models.EntityFramework;
 
 namespace QLTrungTamTiemChung.Areas.Admin.Controllers
 {
-    public class NguoiDungController : Controller
+    public class VacXinController : Controller
     {
         public ActionResult Index(String searchString, int page = 1, int pageSize = 10)
         {
-            var NguoiDungDAO = new NguoiDungDAO();
-            var NguoiDungList = NguoiDungDAO.ListAll(searchString, page, pageSize);
+            var VacXinDAO = new VacXinDAO();
+            var VacXinList = VacXinDAO.ListAll(searchString, page, pageSize);
             ViewBag.searchString = searchString;
-            return View(NguoiDungList);
+            return View(VacXinList);
         }
-        public void SetRoleDropDownList(int? id = null)
+        public void SetNCCDropDownList(int? id = null)
         {
-            var userDAO = new NguoiDungDAO();
-            ViewBag.DanhSachVaiTro = new SelectList(userDAO.RoleDropDownList(), "MaLoaiND", "TenLoaiND", id);
+            var bsDAO = new VacXinDAO();
+            ViewBag.DanhSachNCC = new SelectList(bsDAO.NCCDropDownList(), "MaNCC", "TenNCC", id);
         }
 
         public ActionResult Create()
         {
-            SetRoleDropDownList();
+            SetNCCDropDownList();
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(NguoiDung NguoiDung)
+        public ActionResult Create(Vacxin VacXin)
         {
             if (ModelState.IsValid)
             {
-                var dao = new NguoiDungDAO();
-                int id = dao.Insert(NguoiDung);
+                var dao = new VacXinDAO();
+                int id = dao.Insert(VacXin);
                 if (id > 0)
                 {
                     TempData["thongbao"] = "Thêm mới thành công!";
-                    return RedirectToAction("Index", "NguoiDung");
+                    return RedirectToAction("Index", "VacXin");
                 }
                 else
                 {
                     TempData["thongbao"] = "Thêm mới thất bại";
                 }
             }
+            SetNCCDropDownList();
             return View();
         }
 
         [HttpGet]
         public ActionResult Update(int id)
         {
-            var dao = new NguoiDungDAO();
-            NguoiDung NguoiDung = dao.GetById(id);
-            if (NguoiDung == null)
+            var dao = new VacXinDAO();
+            Vacxin VacXin = dao.GetById(id);
+            if (VacXin == null)
             {
                 Response.StatusCode = 404;
                 return null;
             }
-            SetRoleDropDownList(NguoiDung.MaND);
-            return View(NguoiDung);
+            SetNCCDropDownList(VacXin.MaNCC);
+            return View(VacXin);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Update(NguoiDung NguoiDung)
+        public ActionResult Update(Vacxin VacXin)
         {
             //Thêm vào CSDL
             if (ModelState.IsValid)
             {
-                var dao = new NguoiDungDAO();
-                if (dao.Update(NguoiDung) == true)
+                var dao = new VacXinDAO();
+                if (dao.Update(VacXin) == true)
                 {
                     TempData["thongbao"] = "Chỉnh sửa thành công!";
-                    return RedirectToAction("Index", "NguoiDung");
+                    return RedirectToAction("Index", "VacXin");
                 }
                 else
                 {
                     TempData["thongbao"] = "Chỉnh sửa thất bại!!";
                 }
             }
-            SetRoleDropDownList(NguoiDung.MaND);
-            return View(NguoiDung);
+            SetNCCDropDownList(VacXin.MaNCC);
+            return View(VacXin);
         }
         public ActionResult Delete(int id)
         {
-            var dao = new NguoiDungDAO();
+            var dao = new VacXinDAO();
             if (dao.Delete(id) == true)
             {
                 TempData["thongbao"] = "Xóa thành công!";
